@@ -6,8 +6,8 @@ from threading import Thread
 from cortex import Cortex
 
 # Parameters
-client_id = 'YOUR_EMOTIV_CLIENT_ID'
-client_secret = 'YOUR_EMOTIV_CLIENT_SECRET'
+client_id = 'xxxx'
+client_secret = 'xxxx'
 
 # Graphing setup
 buffer_size = 100  # Number of points to show on the graph
