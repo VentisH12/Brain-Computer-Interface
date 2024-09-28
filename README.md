@@ -9,3 +9,6 @@ Consider a workspace W consisting of an open half plane bounded by a line L. Wor
 The following poster describes my work in detail.
 
 [UTD-BCI-Research.pdf](https://github.com/user-attachments/files/17176118/UTD-BCI-Research.pdf)
+
+<img width="640" alt="UTD-BCI-Research" src="https://github.com/user-attachments/assets/2fec1622-269a-4fdc-92e3-54fb73fd4ee3">
+
