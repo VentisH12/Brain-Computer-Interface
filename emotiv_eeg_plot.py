@@ -1,5 +1,3 @@
-# Filename: emotiv_eeg_plot.py
-
 import time
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,8 +6,8 @@ from collections import deque
 from threading import Thread
 
 # Emotiv client credentials (replace with your actual client_id and client_secret)
-emotiv_client_id = 'YOUR_EMOTIV_CLIENT_ID'
-emotiv_client_secret = 'YOUR_EMOTIV_CLIENT_SECRET'
+emotiv_client_id = 'xxxx'
+emotiv_client_secret = 'yyyy'
 
 # EEG buffer length (in seconds)
 BUFFER_LENGTH = 5
