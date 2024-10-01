@@ -1,3 +1,8 @@
+# Author: Anand Cheruvu
+# Version: 1.4
+# Purpose: Read the streaming EEG signal from 11 channels and plot them in real time.
+
+# import the necessary libraries
 import time
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,11 +17,11 @@ emotiv_client_secret = 'yyyy'
 # EEG buffer length (in seconds)
 BUFFER_LENGTH = 5
 SAMPLING_RATE = 128  # Emotiv headset sampling rate
-NUM_CHANNELS = 8     # Number of EEG channels
+NUM_CHANNELS = 11     # Number of EEG channels
 
 # Initialize buffers for plotting
 eeg_buffers = [deque([0] * SAMPLING_RATE * BUFFER_LENGTH, maxlen=SAMPLING_RATE * BUFFER_LENGTH) for _ in range(NUM_CHANNELS)]
-channel_names = ['AF3', 'AF4', 'T7', 'T8', 'Pz', 'O1', 'O2', 'Cz']  # EEG channel labels
+channel_names = ['FP1', 'FP2', 'CPz','AF3', 'AF4', 'T7', 'T8', 'Pz', 'O1', 'O2', 'Cz']  # EEG channel labels
 
 # Set up the live plot
 fig, axs = plt.subplots(NUM_CHANNELS, 1, figsize=(10, 10))
