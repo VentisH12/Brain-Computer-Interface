@@ -1,5 +1,7 @@
-# Filename: emotiv_eeg_cross_correlation.py
+# Author: Anand Cheruvu
+# Version: 1.2
 
+# import the necessary libraries
 import numpy as np
 from scipy.signal import correlate
 from cortex import Cortex
@@ -12,13 +14,19 @@ emotiv_client_id = 'YOUR_EMOTIV_CLIENT_ID'
 emotiv_client_secret = 'YOUR_EMOTIV_CLIENT_SECRET'
 
 # EEG buffer length (in seconds)
-BUFFER_LENGTH = 10
-SAMPLING_RATE = 128  # Emotiv headset sampling rate
-NUM_CHANNELS = 8     # Number of EEG channels
+BUFFER_LENGTH = 14
+# Emotiv headset sampling rate
+SAMPLING_RATE = 128 
+# Number of EEG channels
+NUM_CHANNELS = 11     
+# Amplitude threshold to detect eye blink
+AMP_THRESHOLD = 14
 
 # Initialize buffers for each EEG channel
 eeg_buffers = [deque([0] * SAMPLING_RATE * BUFFER_LENGTH, maxlen=SAMPLING_RATE * BUFFER_LENGTH) for _ in range(NUM_CHANNELS)]
-channel_names = ['AF3', 'AF4', 'T7', 'T8', 'Pz', 'O1', 'O2', 'Cz']  # EEG channel labels
+
+# EEG channel labels
+channel_names = ['FP1', 'FP2', 'AF3', 'AF4', 'T7', 'T8', 'Pz', 'O1', 'O2', 'Cz','CPz'] 
 
 # Class for streaming EEG data from Emotiv
 class EmotivStream(Cortex):
@@ -42,7 +50,7 @@ class EmotivStream(Cortex):
         for i, data_point in enumerate(eeg_data[2:10]):  # Only select 8 channels
             eeg_buffers[i].append(data_point)
 
-# Function to calculate and plot cross-correlation
+# Function to calculate and plot cross-correlation of the EEG signals
 def calculate_cross_correlation():
     correlations = []
     for i in range(NUM_CHANNELS):
