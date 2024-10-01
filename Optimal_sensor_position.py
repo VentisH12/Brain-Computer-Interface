@@ -4,8 +4,7 @@
 # The workspace W is an open half-plane bounded by the line L, which represents the 
 # surface of the skull.
 # Assumptions: The line L is a straight line on the x-axis.
-#	       The workspace W is the upper half-plane above L (y ≥ 0).
-
+#	           The workspace W is the upper half-plane above L (y ≥ 0).
 
 import numpy as np
 from scipy.optimize import minimize
@@ -45,6 +44,7 @@ def objective(S_params, P):
     S = [Point(x, 0) for x in S_params]  # Sensors are on line L (y=0)
     
     # Compute reciprocal sum of distances
+    # R[j] = sum(1/D(p[i],s[j]))
     rec_sums = reciprocal_sum_of_distances(P, S)
     
     # Minimize the difference in reciprocal sums to force uniqueness
@@ -53,7 +53,6 @@ def objective(S_params, P):
     return minimize_penalty
 
 # Define the neural ensemble points P in the workspace. Some example points
-
 P = [Point(1, 4), Point(2, 5), Point(8, 9)] 
  
 # Initial guess for sensor locations on line L
