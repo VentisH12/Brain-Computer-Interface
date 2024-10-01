@@ -1,11 +1,15 @@
+# Author: Anand Cheruvu
+# Version: 1.1
+# Purpose: Read the streaming signal data from the eMOTIV headset and plot them.
 
+# import the necessary libraries
 import time
 import matplotlib.pyplot as plt
 from collections import deque
 from threading import Thread
 from cortex import Cortex
 
-# Parameters
+# authentication Parameters
 client_id = 'xxxx'
 client_secret = 'xxxx'
 
